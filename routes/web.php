@@ -11,6 +11,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [LoanController::class, 'index'])->name('dashboard');
+    Route::get('/loans/create', [LoanController::class, 'create'])->name('loans.create');
     Route::post('/loans/calculate', [LoanController::class, 'calculate'])->name('loans.calculate');
     Route::post('/loans', [LoanController::class, 'store'])->name('loans.store');
 });

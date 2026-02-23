@@ -19,6 +19,15 @@ class LoanController extends Controller
         return view('dashboard', compact('products', 'loans', 'maxEligible'));
     }
 
+    public function create()
+    {
+        $user = Auth::user();
+        $products = LoanProduct::where('employment_type_required', $user->employment_type)->get();
+        $maxEligible = $user->monthly_income * 10;
+
+        return view('loans.create', compact('products', 'maxEligible', 'user'));
+    }
+
     public function calculate(Request $request)
     {
         $request->validate([

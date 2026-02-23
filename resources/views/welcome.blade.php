@@ -72,7 +72,7 @@
                     @else
                         <a href="{{ route('login') }}"
                             class="hidden sm:block text-primary/80 font-bold hover:text-primary transition-colors">Login</a>
-                        <a href="{{ route('register') }}"
+                        <a href="#apply"
                             class="px-8 py-3 bg-accent text-white font-extrabold rounded-2xl shadow-2xl shadow-accent/30 hover:scale-105 active:scale-95 transition-all">
                             Apply Now
                         </a>
@@ -81,84 +81,160 @@
             </div>
         </nav>
 
-        <!-- Hero Section -->
+        <!-- Hero & Registration Section -->
         <main>
-            <section class="max-w-7xl mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-20 items-center">
-                <div class="space-y-10">
+            <section class="max-w-7xl mx-auto px-6 py-12 lg:py-20 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
                     <div
                         class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/50 border border-primary/5 shadow-sm text-primary/80 font-bold text-xs uppercase tracking-widest">
                         <span class="flex h-2 w-2 rounded-full bg-accent animate-pulse"></span>
                         Trusted by 12,000+ professionals
                     </div>
-                    <h1 class="font-display text-6xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight">
+                    <h1 class="font-display text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight">
                         Modern Loans <br />
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">For Modern
                             Work.</span>
                     </h1>
-                    <p class="text-xl text-primary/60 leading-relaxed max-w-xl font-medium">
+                    <p class="text-lg text-primary/60 leading-relaxed max-w-xl font-medium">
                         Smart, risk-based lending tailored to your profession. Fast approvals, competitive rates, and no
                         hidden fees.
                     </p>
+                    
                     <div class="flex flex-col sm:flex-row gap-5 pt-4">
-                        <a href="{{ route('register') }}"
-                            class="flex h-16 px-12 items-center justify-center rounded-[2rem] bg-primary text-white font-extrabold text-xl shadow-2xl shadow-primary/40 hover:-translate-y-1 hover:shadow-primary/50 transition-all">
-                            Get Started
+                        <a href="#apply"
+                            class="flex h-14 px-10 items-center justify-center rounded-2xl bg-primary text-white font-extrabold text-lg shadow-2xl shadow-primary/40 hover:-translate-y-1 hover:shadow-primary/50 transition-all">
+                            Apply Now
                         </a>
                         <a href="#products"
-                            class="group flex h-16 px-12 items-center justify-center rounded-[2rem] bg-white border-2 border-primary/5 font-bold text-lg hover:border-accent transition-all text-primary/80">
-                            View Products
-                            <span
-                                class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">east</span>
+                            class="group flex h-14 px-10 items-center justify-center rounded-2xl bg-white border-2 border-primary/5 font-bold text-base hover:border-accent transition-all text-primary/80">
+                            Our Products
+                            <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">east</span>
                         </a>
                     </div>
                 </div>
 
-                <div class="relative">
-                    <div class="absolute -inset-20 bg-accent/10 rounded-full blur-[100px] -z-10"></div>
+                <div id="apply" class="relative group">
                     <div
-                        class="relative rounded-[3rem] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] ring-8 ring-white/50">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1500&auto=format&fit=crop"
-                            class="w-full h-[600px] object-cover" alt="Professional Finance">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent">
+                        class="absolute -inset-10 bg-accent/5 rounded-full blur-[80px] -z-10 group-hover:bg-accent/10 transition-all duration-500">
+                    </div>
+                    <div
+                        class="bg-white p-8 lg:p-10 rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-primary/5">
+                        <div class="mb-8">
+                            <h2 class="font-display text-3xl font-black text-primary tracking-tight">Fast Application
+                            </h2>
+                            <p class="text-primary/40 font-medium">Create your elite account to start.</p>
                         </div>
-                        <div class="absolute bottom-8 left-8 right-8 p-8 glass rounded-3xl shadow-2xl">
-                            <div class="flex items-center gap-6">
-                                <div
-                                    class="size-14 rounded-2xl bg-accent flex items-center justify-center shadow-lg shadow-accent/40">
-                                    <span class="material-symbols-outlined text-white text-3xl">bolt</span>
+
+                        <form method="POST" action="{{ route('register') }}" class="space-y-5">
+                            @csrf
+
+                            @if ($errors->any())
+                                <div class="p-4 bg-red-50 border border-red-100 rounded-2xl">
+                                    <ul class="list-disc list-inside text-xs font-bold text-red-500 space-y-1">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
-                                <div>
-                                    <p class="text-xs font-black uppercase tracking-[0.2em] text-accent mb-1">Instant
-                                        Approval</p>
-                                    <p class="text-lg font-bold text-primary tracking-tight">Loan Disbursed in 5 Minutes
-                                    </p>
+                            @endif
+
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary/40 px-2">Full
+                                        Name</label>
+                                    <input type="text" name="name" value="{{ old('name') }}" required
+                                        class="block w-full h-12 bg-surface border-primary/5 focus:border-accent focus:ring-accent rounded-xl px-4 font-bold text-primary shadow-sm"
+                                        placeholder="John Doe">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary/40 px-2">Email
+                                        Address</label>
+                                    <input type="email" name="email" value="{{ old('email') }}" required
+                                        class="block w-full h-12 bg-surface border-primary/5 focus:border-accent focus:ring-accent rounded-xl px-4 font-bold text-primary shadow-sm"
+                                        placeholder="john@example.com">
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary/40 px-2">NRC
+                                        Number</label>
+                                    <input type="text" name="nrc" value="{{ old('nrc') }}" required
+                                        class="block w-full h-12 bg-surface border-primary/5 focus:border-accent focus:ring-accent rounded-xl px-4 font-bold text-primary shadow-sm"
+                                        placeholder="000000/00/1">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary/40 px-2">Mobile
+                                        Number</label>
+                                    <input type="text" name="phone" value="{{ old('phone') }}" required
+                                        class="block w-full h-12 bg-surface border-primary/5 focus:border-accent focus:ring-accent rounded-xl px-4 font-bold text-primary shadow-sm"
+                                        placeholder="0970000000">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary/40 px-2">Employment
+                                        Sector</label>
+                                    <select name="employment_type" required
+                                        class="block w-full h-12 bg-surface border-primary/5 focus:border-accent focus:ring-accent rounded-xl px-4 font-black text-xs uppercase tracking-widest text-primary shadow-sm">
+                                        <option value="government" {{ old('employment_type') == 'government' ? 'selected' : '' }}>Government</option>
+                                        <option value="marketer" {{ old('employment_type') == 'marketer' ? 'selected' : '' }}>Marketer</option>
+                                        <option value="business" {{ old('employment_type') == 'business' ? 'selected' : '' }}>Business</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary/40 px-2">Monthly
+                                        Income</label>
+                                    <input type="number" name="monthly_income" value="{{ old('monthly_income') }}"
+                                        required
+                                        class="block w-full h-12 bg-surface border-primary/5 focus:border-accent focus:ring-accent rounded-xl px-4 font-bold text-primary shadow-sm"
+                                        placeholder="K10,000">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary/40 px-2">Set
+                                        Password</label>
+                                    <input type="password" name="password" required
+                                        class="block w-full h-12 bg-surface border-primary/5 focus:border-accent focus:ring-accent rounded-xl px-4 font-bold text-primary shadow-sm"
+                                        placeholder="••••••••">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary/40 px-2">Confirm
+                                        Password</label>
+                                    <input type="password" name="password_confirmation" required
+                                        class="block w-full h-12 bg-surface border-primary/5 focus:border-accent focus:ring-accent rounded-xl px-4 font-bold text-primary shadow-sm"
+                                        placeholder="••••••••">
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full h-14 mt-4 bg-primary text-white font-black text-lg rounded-2xl shadow-xl shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all">
+                                Apply & Continue
+                            </button>
+                        </form>
                     </div>
                 </div>
             </section>
 
             <!-- Products -->
-            <section id="products" class="bg-white py-32 px-6">
+            <section id="products" class="bg-white py-24 px-6">
                 <div class="max-w-7xl mx-auto">
-                    <div class="flex flex-col md:flex-row items-end justify-between gap-8 mb-20">
-                        <div class="space-y-4">
-                            <h2 class="font-display text-4xl lg:text-5xl font-extrabold tracking-tight">Tailored
-                                Categories</h2>
-                            <p class="text-primary/60 text-xl max-w-xl">We've designed our lending products to match the
-                                financial realities of your career path.</p>
-                        </div>
-                        <div class="flex gap-4">
-                            <button
-                                class="size-14 rounded-full border-2 border-primary/5 flex items-center justify-center hover:border-accent hover:text-accent transition-all">
-                                <span class="material-symbols-outlined">west</span>
-                            </button>
-                            <button
-                                class="size-14 rounded-full border-2 border-primary/5 flex items-center justify-center hover:border-accent hover:text-accent transition-all font-bold">
-                                <span class="material-symbols-outlined">east</span>
-                            </button>
-                        </div>
+                    <div class="text-center mb-16 space-y-4">
+                        <h2 class="font-display text-4xl lg:text-5xl font-extrabold tracking-tight">Tailored Categories
+                        </h2>
+                        <p class="text-primary/60 text-lg max-w-2xl mx-auto">We've designed our lending products to
+                            match the financial realities of your career path.</p>
                     </div>
 
                     <div class="grid md:grid-cols-3 gap-10">
