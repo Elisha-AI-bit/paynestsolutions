@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart Loan Calculator | PayNestSolutions</title>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e3b8a",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121620",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #1e3b8a;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        .slider-thumb::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #1e3b8a;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<div class="w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class="flex items-center justify-between h-16">
+<div class="flex items-center gap-3">
+<div class="text-primary size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">PayNestSolutions</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary" href="#">Dashboard</a>
+<a class="text-sm font-semibold text-primary" href="#">Loans</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary" href="#">Payments</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary" href="#">Settings</a>
+</nav>
+<div class="h-10 w-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden ring-2 ring-primary/20">
+<img alt="Profile" class="h-full w-full object-cover" data-alt="User profile avatar circle image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAABO9lXWXgSBpb9LEBeficodEmZMvIcm0_TMqBaeXTvAfKItpzWCSTTthTFpyYKvWqVxq-_seUPUDlK-BVKb2-_dEzdPwbBNw-A_q218_xl3D2KAsYNrp2gt4f41z1jVLo7tf9nBZ3C3DcAaVDPeyZ5j-Id9sk1tWPLo-AMcaqBZxMomqOTzxayTVLp5erAU7gGOnEIFXBxutBa2Ow_aaHx7983AhfnukD219WNDHFLDNQKfIIxu-42UhsM5ESmDMYzNYpgpi3Nyk"/>
+</div>
+</div>
+</header>
+</div>
+</div>
+<!-- Main Content -->
+<main class="max-w-6xl mx-auto px-4 py-12">
+<div class="mb-10 text-center md:text-left">
+<h1 class="text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-2">Smart Loan Calculator</h1>
+<p class="text-lg text-slate-500 dark:text-slate-400">Adjust the parameters to find a repayment plan that fits your budget.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Controls -->
+<div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 space-y-10">
+<!-- Loan Amount Section -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<label class="text-lg font-bold text-slate-800 dark:text-slate-200">How much do you need?</label>
+<div class="text-3xl font-black text-primary">K6,500</div>
+</div>
+<div class="relative pt-2">
+<input class="slider-thumb w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-primary" max="12000" min="1000" step="500" type="range" value="6500"/>
+<div class="flex justify-between mt-4 text-xs font-semibold text-slate-400 uppercase tracking-widest">
+<span>Min: K1,000</span>
+<span>Max: K12,000</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="py-2 px-3 text-sm font-medium border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-primary hover:text-white transition-colors">K2,000</button>
+<button class="py-2 px-3 text-sm font-medium border border-primary bg-primary/5 text-primary rounded-lg">K6,500</button>
+<button class="py-2 px-3 text-sm font-medium border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-primary hover:text-white transition-colors">K10,000</button>
+<button class="py-2 px-3 text-sm font-medium border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-primary hover:text-white transition-colors">K12,000</button>
+</div>
+</div>
+<hr class="border-slate-100 dark:border-slate-800"/>
+<!-- Duration Section -->
+<div class="space-y-4">
+<label class="text-lg font-bold text-slate-800 dark:text-slate-200 block">Repayment Period</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="relative flex items-center">
+<input class="hidden peer" id="3m" name="duration" type="radio"/>
+<label class="w-full text-center py-4 border-2 border-slate-100 dark:border-slate-800 rounded-xl cursor-pointer peer-checked:border-primary peer-checked:bg-primary/5 transition-all" for="3m">
+<span class="block text-xl font-bold text-slate-800 dark:text-slate-200">3 Months</span>
+<span class="text-xs text-slate-500">Short term</span>
+</label>
+</div>
+<div class="relative flex items-center">
+<input checked="" class="hidden peer" id="6m" name="duration" type="radio"/>
+<label class="w-full text-center py-4 border-2 border-slate-100 dark:border-slate-800 rounded-xl cursor-pointer peer-checked:border-primary peer-checked:bg-primary/5 transition-all" for="6m">
+<span class="block text-xl font-bold text-slate-800 dark:text-slate-200">6 Months</span>
+<span class="text-xs text-slate-500">Most popular</span>
+</label>
+</div>
+<div class="relative flex items-center">
+<input class="hidden peer" id="12m" name="duration" type="radio"/>
+<label class="w-full text-center py-4 border-2 border-slate-100 dark:border-slate-800 rounded-xl cursor-pointer peer-checked:border-primary peer-checked:bg-primary/5 transition-all" for="12m">
+<span class="block text-xl font-bold text-slate-800 dark:text-slate-200">12 Months</span>
+<span class="text-xs text-slate-500">Flexible</span>
+</label>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 rounded-lg p-4 flex gap-3 items-start border border-primary/10">
+<span class="material-symbols-outlined text-primary text-xl">info</span>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Rates are fixed for the duration of your loan. There are no hidden fees or early repayment penalties.
+                    </p>
+</div>
+</div>
+<!-- Right Column: Results Panel -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-primary text-white rounded-xl shadow-xl overflow-hidden">
+<div class="p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-lg font-bold opacity-80">Repayment Summary</h3>
+<span class="px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wider">Live Estimate</span>
+</div>
+<div class="space-y-1 mb-10">
+<p class="text-sm font-medium opacity-70">Monthly Payment</p>
+<div class="text-6xl font-black tracking-tight">K1,250<span class="text-2xl font-normal opacity-60">/mo</span></div>
+</div>
+<div class="grid grid-cols-2 gap-6 border-t border-white/10 pt-8">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 opacity-70 mb-1">
+<span class="text-sm font-medium">Interest Rate</span>
+<span class="material-symbols-outlined text-xs">help</span>
+</div>
+<p class="text-2xl font-bold">10% <span class="text-sm font-normal opacity-60">Fixed</span></p>
+</div>
+<div class="space-y-1">
+<p class="text-sm font-medium opacity-70 mb-1">Total Payable</p>
+<p class="text-2xl font-bold">K15,000</p>
+</div>
+</div>
+</div>
+<div class="p-8 pt-0">
+<button class="w-full bg-white text-primary hover:bg-slate-100 py-4 rounded-lg font-black text-lg transition-colors shadow-lg">
+                            Apply for This Loan
+                        </button>
+<p class="mt-4 text-center text-xs opacity-60">
+                            Subject to credit approval. T&amp;Cs apply.
+                        </p>
+</div>
+</div>
+<!-- Secondary Info Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800">
+<h4 class="font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified</span>
+                        Why choose PayNest?
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-green-500 text-sm mt-0.5">check_circle</span>
+                            Instant decision within 5 minutes
+                        </li>
+<li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-green-500 text-sm mt-0.5">check_circle</span>
+                            Funds transferred same day
+                        </li>
+<li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-green-500 text-sm mt-0.5">check_circle</span>
+                            Secure, encrypted application process
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Footer Visual Section -->
+<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-200 dark:border-slate-800 pt-12">
+<div class="flex flex-col items-center text-center px-4">
+<div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h5 class="font-bold mb-2">Flexible Terms</h5>
+<p class="text-sm text-slate-500">Choose from 3 to 12 months with fixed monthly rates.</p>
+</div>
+<div class="flex flex-col items-center text-center px-4">
+<div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<h5 class="font-bold mb-2">Fast Funding</h5>
+<p class="text-sm text-slate-500">Money in your account as soon as the same business day.</p>
+</div>
+<div class="flex flex-col items-center text-center px-4">
+<div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">shield_lock</span>
+</div>
+<h5 class="font-bold mb-2">Safe &amp; Secure</h5>
+<p class="text-sm text-slate-500">Your data is protected with bank-level 256-bit encryption.</p>
+</div>
+</div>
+</main>
+<!-- Visual Background Element -->
+<div class="fixed top-0 right-0 -z-10 w-1/3 h-1/3 bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-1/4 h-1/4 bg-primary/10 blur-[100px] rounded-full"></div>
+</body></html>

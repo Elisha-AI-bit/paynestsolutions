@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PayNestSolutions - Smart Loans</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1e3b8a",
+              "accent": "#10b981",
+              "background-light": "#f6f6f8",
+              "background-dark": "#121620",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light text-[#121317]">
+<div class="relative flex min-h-screen w-full flex-col bg-white overflow-x-hidden">
+<!-- Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-solid border-primary/10 px-4 md:px-20 lg:px-40 py-4">
+<div class="flex items-center justify-between max-w-[1280px] mx-auto">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-white text-2xl">account_balance</span>
+</div>
+<h2 class="text-primary text-xl font-extrabold tracking-tight">PayNestSolutions</h2>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold text-primary hover:text-accent transition-colors" href="#">Home</a>
+<a class="text-sm font-semibold text-[#666e85] hover:text-primary transition-colors" href="#">Products</a>
+<a class="text-sm font-semibold text-[#666e85] hover:text-primary transition-colors" href="#">About</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex min-w-[100px] items-center justify-center rounded-lg h-10 px-4 border-2 border-primary/10 text-primary text-sm font-bold hover:bg-primary/5 transition-all">
+                        Login
+                    </button>
+<button class="flex min-w-[120px] items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+                        Apply Now
+                    </button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<main class="flex-1">
+<section class="px-4 md:px-20 lg:px-40 py-16 md:py-24 bg-gradient-to-br from-white via-background-light to-white">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8 order-2 lg:order-1">
+<div class="flex flex-col gap-4">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest w-fit">
+<span class="size-2 rounded-full bg-accent animate-pulse"></span>
+                                Trusted by 50k+ Professionals
+                            </span>
+<h1 class="text-4xl md:text-6xl font-extrabold text-primary leading-[1.1] tracking-tight">
+                                Smart Loans Built Around Your <span class="text-accent underline decoration-accent/30 underline-offset-8">Employment</span>
+</h1>
+<p class="text-lg text-[#666e85] leading-relaxed max-w-[540px]">
+                                Eligibility First. Calculation Second. We provide tailored financial solutions specifically designed for government workers, marketers, and entrepreneurs.
+                            </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex h-14 px-8 items-center justify-center rounded-xl bg-primary text-white font-bold text-lg shadow-xl shadow-primary/25 hover:translate-y-[-2px] transition-all">
+                                Apply Now
+                            </button>
+<button class="flex h-14 px-8 items-center justify-center rounded-xl bg-white border-2 border-accent text-accent font-bold text-lg hover:bg-accent hover:text-white transition-all">
+                                Check Eligibility
+                            </button>
+</div>
+<div class="flex items-center gap-6 pt-4 border-t border-primary/5">
+<div class="flex -space-x-3">
+<div class="size-10 rounded-full border-2 border-white bg-primary/10 bg-cover" data-alt="User avatar 1" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCu6dFckTEQEumLNLWs9naAkuoAcZxWU7fprHQb_AOzYGQpTxcGTO-Nwl2yeprJ_9UOPcBAdELSqPhnW8ifMvFg4eSP_yXhGXdaudIElG86n4A3u0GMoFvdt5sadzz15HA5gBaIpJnK4mh7Ye3vkJAQybQBqIcOoLG3q6rqhAuvbBQW3PJBPPDYKzMc7fwH5a6Qp3UIqY7TBbNult9btTjMrlgMu2SP6V22ymrgXA50SLWsVZj6G83KOS0gjw1arTECHLMgRT4axuE')"></div>
+<div class="size-10 rounded-full border-2 border-white bg-primary/20 bg-cover" data-alt="User avatar 2" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQ7Ak5UGyg2LqeiHx8iNCV_ZqJEYVIMua4wlQfruDThQYuNUXLi-yYPEou1wvd34XB8MPpexhk7bakCyZzJefUkBbmePN2K9AJufDfHxhx2VyWvhVajbX8G8-NrJ--vZ7SOAPHdJx4a1aXSs7IAhhovZuM4VvSOU3r0u-hsKV6Wx2XkzwHEw-ahUDqfE3QuWkB4FtE5IpfQfag-jeYmhbcpT1_hgxVNVT5pvDEFcocN652GTdCd6DZ-HICGumvw5izVB2yaYmJl2o')"></div>
+<div class="size-10 rounded-full border-2 border-white bg-primary/30 bg-cover" data-alt="User avatar 3" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCwnwzlH0YLUKzsu88l0Ty7vjG5gAiSH8hueSJ33UP7zZFls8XBl5hFlLjdE5VzDzq-FV2z-V0-D1BXyux7qPN3tjfGrmlLTdggyweRq1PNFdk0XhP3tqmuXyGTXoB9qrgVHyMNuu4om_faqSdgFBCSp-dYVZLIXHvoqKb5OUrJSKcDnsRiNQz1Mi9qTcdcZg2NWGjtstmZ88Vs9v53d9V8__4H5bGo6vKsJMNZWD778cGHRX4328ubb9F0_T43b4z0AqzyobQU6Tc')"></div>
+</div>
+<p class="text-sm text-[#666e85]"><span class="font-bold text-primary">4.9/5</span> average rating from our clients</p>
+</div>
+</div>
+<div class="relative order-1 lg:order-2">
+<div class="absolute -inset-4 bg-accent/10 rounded-[2rem] blur-2xl -z-10"></div>
+<div class="w-full aspect-square bg-cover bg-center rounded-[2rem] shadow-2xl overflow-hidden border-8 border-white" data-alt="Happy professional working on a laptop" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0s1OBZpT7AtLw2r4gQ-NknR9cFatxEOrrBO0LSwth1GiYsfVzmBZSfGoBMyHjyx8TgGKeNSrGRSiyqMqmHQ46wTOWVNHcmKdCMoTqeCsuHM15hLueSPBc-R-XcrT9S4jHlG5lG3UcDL2BW2gKO15M5S0yrFWcCrRM8dy6fis-9dtskRs-YKsvEKWBeQuL2UbDkONSe-Nt1X4pKliezZMSNGKzX5sl6pUnYb9elDihBJs4RaJ9AwvjLDqPP0JJY7zYNAroKrUMWB8')">
+</div>
+<div class="absolute bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-primary/5 flex items-center gap-4 animate-bounce-slow">
+<div class="size-12 rounded-full bg-accent/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-accent">verified</span>
+</div>
+<div>
+<p class="text-xs text-[#666e85] font-medium">Instant Approval</p>
+<p class="text-sm font-bold text-primary">Loan Disbursed</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Loan Categories Section -->
+<section class="px-4 md:px-20 lg:px-40 py-24">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div class="max-w-xl">
+<h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4 tracking-tight">Tailored Loan Categories</h2>
+<p class="text-[#666e85] text-lg">Choose a plan that fits your professional profile and income structure.</p>
+</div>
+<a class="text-accent font-bold flex items-center gap-2 group" href="#">
+                            View all products 
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Government Loan -->
+<div class="group bg-white p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-xl hover:border-accent/20 transition-all">
+<div class="size-16 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all mb-6">
+<span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">Government Loan</h3>
+<p class="text-[#666e85] leading-relaxed mb-6">Specially discounted rates for public sector employees with flexible deduction-at-source options.</p>
+<a class="inline-flex items-center gap-2 font-bold text-sm text-primary group-hover:text-accent transition-colors" href="#">
+                                LEARN MORE <span class="material-symbols-outlined text-sm">trending_flat</span>
+</a>
+</div>
+<!-- Marketer Loan -->
+<div class="group bg-white p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-xl hover:border-accent/20 transition-all">
+<div class="size-16 rounded-xl bg-accent/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all mb-6">
+<span class="material-symbols-outlined text-3xl">insights</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">Marketer Loan</h3>
+<p class="text-[#666e85] leading-relaxed mb-6">Flexible repayment plans that align with your commission cycles and sales performance benchmarks.</p>
+<a class="inline-flex items-center gap-2 font-bold text-sm text-primary group-hover:text-accent transition-colors" href="#">
+                                LEARN MORE <span class="material-symbols-outlined text-sm">trending_flat</span>
+</a>
+</div>
+<!-- Business Loan -->
+<div class="group bg-white p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-xl hover:border-accent/20 transition-all">
+<div class="size-16 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all mb-6">
+<span class="material-symbols-outlined text-3xl">storefront</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">Business Loan</h3>
+<p class="text-[#666e85] leading-relaxed mb-6">Strategic capital for entrepreneurs looking to scale operations with minimal friction and fast processing.</p>
+<a class="inline-flex items-center gap-2 font-bold text-sm text-primary group-hover:text-accent transition-colors" href="#">
+                                LEARN MORE <span class="material-symbols-outlined text-sm">trending_flat</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="px-4 md:px-20 lg:px-40 py-20 bg-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-accent/10 skew-x-[-20deg] translate-x-32"></div>
+<div class="max-w-[1280px] mx-auto flex flex-col items-center text-center relative z-10">
+<h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight max-w-3xl">
+                        Secure Your Financial Future with PayNestSolutions
+                    </h2>
+<p class="text-white/70 text-lg mb-10 max-w-2xl">
+                        Join thousands of professionals securing their future. Our application process takes less than 5 minutes.
+                    </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="h-14 px-10 rounded-xl bg-accent text-white font-bold text-lg hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            Apply Now
+                        </button>
+<button class="h-14 px-10 rounded-xl bg-white/10 text-white font-bold text-lg border border-white/20 hover:bg-white/20 transition-all">
+                            Contact Support
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-primary/10 px-4 md:px-20 lg:px-40 py-16">
+<div class="max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1 rounded-md">
+<span class="material-symbols-outlined text-white text-xl">account_balance</span>
+</div>
+<h2 class="text-primary text-lg font-extrabold tracking-tight">PayNestSolutions</h2>
+</div>
+<p class="text-[#666e85] text-sm leading-relaxed">
+                            Empowering professionals with smart financial tools and tailored loan solutions designed for the modern workforce.
+                        </p>
+<div class="flex gap-4">
+<a class="size-9 rounded-lg bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">social_leaderboard</span>
+</a>
+<a class="size-9 rounded-lg bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+<a class="size-9 rounded-lg bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-6">Company</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-[#666e85] text-sm hover:text-accent transition-colors" href="#">About Us</a></li>
+<li><a class="text-[#666e85] text-sm hover:text-accent transition-colors" href="#">Careers</a></li>
+<li><a class="text-[#666e85] text-sm hover:text-accent transition-colors" href="#">Contact</a></li>
+<li><a class="text-[#666e85] text-sm hover:text-accent transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-6">Products</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-[#666e85] text-sm hover:text-accent transition-colors" href="#">Personal Loans</a></li>
+<li><a class="text-[#666e85] text-sm hover:text-accent transition-colors" href="#">Business Capital</a></li>
+<li><a class="text-[#666e85] text-sm hover:text-accent transition-colors" href="#">Credit Score</a></li>
+<li><a class="text-[#666e85] text-sm hover:text-accent transition-colors" href="#">Financial Planning</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-6">Contact Us</h4>
+<ul class="flex flex-col gap-4">
+<li class="flex items-center gap-3 text-sm text-[#666e85]">
+<span class="material-symbols-outlined text-accent text-lg">location_on</span>
+                                123 Fintech Plaza, Finance District
+                            </li>
+<li class="flex items-center gap-3 text-sm text-[#666e85]">
+<span class="material-symbols-outlined text-accent text-lg">call</span>
+                                +1 (555) 000-NEST
+                            </li>
+<li class="flex items-center gap-3 text-sm text-[#666e85]">
+<span class="material-symbols-outlined text-accent text-lg">mail</span>
+                                hello@paynestsolutions.com
+                            </li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[#666e85] text-xs">© 2024 PayNestSolutions. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-[#666e85] text-xs hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-[#666e85] text-xs hover:text-primary" href="#">Terms of Service</a>
+<a class="text-[#666e85] text-xs hover:text-primary" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
